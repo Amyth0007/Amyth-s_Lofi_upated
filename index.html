@@ -1,0 +1,188 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A_myht_lO-FI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+        integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css">
+      
+</head>
+
+<body>
+      <!-- <img src="img/amit-4.png" alt=""> -->
+    <div class="main_div">
+        <div class="music_container">
+            <h2 id="title">LOTUS LANE</h2>
+            <h3 id="artist">The loyalist</h3>
+            <div class="img_container">
+                <img src="img/amit-4.jpg" alt="">
+            </div>
+            <audio src="music/Coldplay.mp3"></audio>
+            <div class="music_controls">
+                <i class="fas fa-backward" id="next" title="Next"></i>
+                <i class="fas fa-play main_button" id="play" title="Play"></i>
+                <i class="fas fa-forward" id="prev" title="Previous"></i>
+            </div>
+        </div>
+        <!-- <img src="img/amit-4.png" alt=""> -->
+    </div>
+    <script>
+        const music = document.querySelector("audio");
+        const img = document.querySelector("img");
+        const play = document.getElementById('play');
+        const artist = document.getElementById('artist');
+        const title = document.getElementById('title');
+        const prev = document.getElementById('prev');
+        const next = document.getElementById('next');
+        // array of an object
+        const songs = [
+            {
+                name : "Let_Me_Down_Slowly",
+                title : "Let_Me_Down_Slowly",
+                artist : "naruto",
+                iname : "amit-1",
+
+            },
+            {
+                name : "I'm_an_Albatraoz",
+                title : "I'm_an_Albatraoz",
+                artist : "kakashi" ,
+                iname : "amit-2",
+            },
+            {
+                name : "Flo_Rida_-_Low",
+                title : "Low",
+                artist : "Itachi" ,
+                iname : "amit-3" ,
+            },
+            {
+                name : "Wellerman",
+                title : "Wellerman",
+                artist : 'Sasuke' ,
+                iname : 'amit-4',
+            },
+            {
+                name : "Otnicka_-_Peaky_Blinder",
+                title : "Peaky_Blinder",
+                artist : 'Levi_ackerman' ,
+                iname : 'amit-5',
+            },
+            {
+                name : "Vilen_-_Chidiya",
+                title : "Vilen",
+                artist : 'Mikasa' ,
+                iname : 'amit-6',
+            },
+            {
+                name : "Vo_Purane_Din",
+                title : "Vo_Purane_Din",
+                artist : 'Daredevil' ,
+                iname : 'amit-7',
+            },
+            {
+                name : "Coldplay",
+                title : "Coldplay",
+                artist : 'Eren yeager' ,
+                iname : 'amit-8',
+            },
+            {
+                name : "Skechers",
+                title : "Skechers",
+                artist : 'Akatsuki' ,
+                iname : 'amit-9',
+            },
+            {
+                name : "Mann_Mera_Slowed",
+                title : "Mann_Mera",
+                artist : 'Amit the great' ,
+                iname : 'amit-10',
+            },
+        ];
+
+        let playying = false;
+        // play.addEventListener('click' ,(e)=>{
+        //     if(playying){
+        //     music.play();
+
+        //     play.classList.replace('fa-play' , 'fa-pause')
+        //      playying = false;
+        //     img.classList.add('anime')
+        //     }
+        //     else{
+        //         music.pause();
+        //     play.classList.replace('fa-pause' , 'fa-play')
+        //     playying= true;
+        //     img.classList.remove('anime')
+        //     }
+
+           
+        // })
+
+        const playmusic = ()=>{
+            playying = true;
+             music.play();
+             play.classList.replace('fa-play' , 'fa-pause');
+             img.classList.add("anime");
+        }
+
+        const pausemusic = ()=>{
+            playying = false;
+             music.pause();
+             play.classList.replace('fa-pause' , 'fa-play');
+             img.classList.add("anime");
+        }
+        play.addEventListener('click' , ()=>{
+            if(playying){
+                pausemusic();
+            }
+            else{
+                playmusic();
+            }
+        })
+
+        // play.addEventListener('click' ,(e)=>{
+        //     playying = false
+        //     if(playying){music.pause();}
+        //     else{music.play();}
+        //     img.classList.add('anime')
+        //     play.classList.replace('fa-pause' , 'fa-pause')
+           
+        // })
+        const loadsong = (songs) =>{
+            title.textContent =songs.title;
+            artist.textContent = songs.artist;
+            music.src = "music/"+ songs.name+".mp3";
+            img.src = "img/"+songs.iname+".jpg";
+          }
+        songindex =0;
+        const nextsong = ()=>{
+            songindex = (songindex+1) % songs.length;
+            loadsong(songs[songindex]);
+            playmusic();
+            
+        }
+        const prevsong = ()=>{
+            songindex = (songindex+1) % songs.length;
+            loadsong(songs[songindex]);
+            playmusic();
+            
+        /////
+        
+
+        }
+        prev.addEventListener('click' , nextsong);
+        next.addEventListener('click' , prevsong);
+        
+
+        
+    
+
+
+    </script>
+</body>
+
+</html>
