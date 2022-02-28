@@ -9,6 +9,12 @@
         integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="style.css">
+        <style>
+            *{
+
+
+            }
+        </style>
       
 </head>
 
@@ -133,7 +139,7 @@
             playying = false;
              music.pause();
              play.classList.replace('fa-pause' , 'fa-play');
-             img.classList.add("anime");
+             img.classList.remove("anime");
         }
         play.addEventListener('click' , ()=>{
             if(playying){
